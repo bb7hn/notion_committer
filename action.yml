@@ -27,12 +27,9 @@ jobs:
 
     - name: Set the tag
       run: |
-        if [ -z "${{inputs.tag}}" ]
-        then
-          echo "final_tag=latest" >> $GITHUB_ENV
-        else
-          echo "final_tag=${{inputs.tag}}" >> $GITHUB_ENV
-        fi
+        echo ${{env.SECRET_GITHUB}}
+        echo ${{env.NOTION_API_KEY}}
+        echo ${{env.NOTION_DATABASE}}
 
     #- name: Build and Push the Image
     #  uses: docker/build-push-action@v2
