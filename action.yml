@@ -6,7 +6,15 @@ name: Node.js CI
 on:
   pull_request:
     branches: [ "main" ]
-
+  workflow_call:
+    secrets:
+      SECRET_GITHUB:
+        required: true
+      NOTION_API_KEY:
+        required: true
+      NOTION_DATABASE:
+        required: true
+      
 jobs:
   build:
 
@@ -18,4 +26,7 @@ jobs:
       uses: actions/setup-node@v3
       with:
         cache: 'npm'
+    - run: set SECRET_GITHUB=${{secrets.SECRET_GITHUB}}
+    - run: set NOTION_API_KEY=${{secrets.NOTION_API_KEY}}
+    - run: set NOTION_DATABASE=${{secrets.NOTION_API_KEY}}
     - run: node index.js
