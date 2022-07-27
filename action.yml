@@ -1,11 +1,17 @@
-name: Test
-description: 'composite run action'
+name: "commit to notion"
+author: BatuhanÖzen
+description: "Write your last commit to notion database."
+inputs:
+  GITHUB_TOKEN:
+    description: "GitHub token"
+    required: true
+  NOTION_API_KEY:
+    description: "Notion API Key"
+    required: true
+  NOTION_DATABASE:
+    description: "Notion Database ID"
+    required: true
 
 runs:
-  using: "composite"
-  steps: 
-    steps:
-    - name: Echo
-      shell: bash
-      run: |
-        echo Heyyyyy
+  using: node12
+  main: /index.js
