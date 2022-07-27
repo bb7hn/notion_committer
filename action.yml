@@ -5,14 +5,13 @@ name: Node.js CI
 
 on:
   pull_request:
-    branches: [ "main" ]
-      secrets:
-        SECRET_GITHUB:
-          required: true
-        NOTION_API_KEY:
-          required: true
-        NOTION_DATABASE:
-          required: true
+    secrets:
+      SECRET_GITHUB:
+        required: true
+      NOTION_API_KEY:
+        required: true
+      NOTION_DATABASE:
+        required: true
   workflow_call:
     secrets:
       SECRET_GITHUB:
@@ -24,7 +23,6 @@ on:
       
 jobs:
   build:
-
     runs-on: ubuntu-latest
     
     steps:
