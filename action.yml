@@ -20,12 +20,29 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js
-      uses: actions/setup-node@v3
+    - uses: actions/checkout@v2
+
+    - name: Setup BuildX
+      uses: docker/setup-buildx-action@v1
+
+    - name: Login to the Registry
+      uses: docker/login-action@v1
       with:
-        cache: 'npm'
-    - run: export SECRET_GITHUB=${{inputs.SECRET_GITHUB}}
-    - run: export NOTION_API_KEY=${{inputs.NOTION_API_KEY}}
-    - run: export NOTION_DATABASE=${{inputs.NOTION_API_KEY}}
-    - run: node index.js
+        username: ${{secrets.registry_username}}
+        password: ${{secrets.registry_password}}
+
+    - name: Set the tag
+      run: |
+        if [ -z "${{inputs.tag}}" ]
+        then
+          echo "final_tag=latest" >> $GITHUB_ENV
+        else
+          echo "final_tag=${{inputs.tag}}" >> $GITHUB_ENV
+        fi
+
+    #- name: Build and Push the Image
+    #  uses: docker/build-push-action@v2
+    #  with:
+    #    context: .
+    #    push: true
+    #    tags: ${{secrets.registry_username}}/${{inputs.image_name}}:${{env.final_tag}}
