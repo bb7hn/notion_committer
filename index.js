@@ -1,5 +1,5 @@
 import { Client } from "@notionhq/client"
-import { core } from "@@actions/core"
+import { core } from "@actions/core"
 
 const SECRET_GITHUB = core.getInput('SECRET_GITHUB');
 const NOTIONAPIKEY = core.getInput('NOTION_API_KEY');
