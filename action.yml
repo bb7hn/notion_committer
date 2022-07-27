@@ -22,5 +22,4 @@ runs:
   using: node16
   main: index.js
 branding:
-  icon: "git-commit"
   color: "gray-dark"
