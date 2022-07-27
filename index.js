@@ -66,7 +66,7 @@ const filter = (val)=>{
     return (val!=''&&val&&val.length>0)
 }
 
-let response = octokit.request('GET /repos/{owner}/{repo}/commits/main', {
+let response = await octokit.request('GET /repos/{owner}/{repo}/commits/main', {
     owner: OWNER,
     repo: REPO
 })
