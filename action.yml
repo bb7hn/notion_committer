@@ -4,18 +4,17 @@
 name: Node.js CI
 
 on:
-  workflow_call
-
-env:
-  SECRET_GITHUB:
-    require: true
-    type: string
-  NOTION_API_KEY:
-    require: true
-    type: string
-  NOTION_DATABASE:
-    require: true
-    type: string
+  workflow_call:
+    env:
+      SECRET_GITHUB:
+        require: true
+        type: string
+      NOTION_API_KEY:
+        require: true
+        type: string
+      NOTION_DATABASE:
+        require: true
+        type: string
 jobs:
   build:
     runs-on: ubuntu-latest
