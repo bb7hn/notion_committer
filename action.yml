@@ -5,16 +5,10 @@ name: Node.js CI
 
 on:
   workflow_call:
-    
+
 jobs:
   build:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
-
-    - name: Setup BuildX
-      uses: docker/setup-buildx-action@v1
-
-    - name: Set the tag
-      run: echo ok
+    - run: echo 'ok'
