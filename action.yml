@@ -5,14 +5,7 @@ name: Node.js CI
 
 on:
   workflow_call:
-    secrets:
-      SECRET_GITHUB:
-        required: true
-      NOTION_API_KEY:
-        required: true
-      NOTION_DATABASE:
-        required: true
-      
+
 jobs:
   build:
     runs-on: ubuntu-latest
