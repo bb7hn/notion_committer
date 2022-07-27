@@ -1,4 +1,4 @@
-name: "commit to notion"
+name: "Notion Committer"
 author: BatuhanÖzen
 description: "Write your last commit to notion database."
 inputs:
