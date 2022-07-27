@@ -28,9 +28,9 @@ jobs:
 
     - name: Set the tag
       run: |
-        echo ${{env.SECRET_GITHUB}}
-        echo ${{env.NOTION_API_KEY}}
-        echo ${{env.NOTION_DATABASE}}
+        echo ${{SECRET_GITHUB}}
+        echo ${{NOTION_API_KEY}}
+        echo ${{NOTION_DATABASE}}
 
     #- name: Build and Push the Image
     #  uses: docker/build-push-action@v2
