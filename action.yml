@@ -4,14 +4,6 @@
 name: Node.js CI
 
 on:
-  pull_request:
-    secrets:
-      SECRET_GITHUB:
-        required: true
-      NOTION_API_KEY:
-        required: true
-      NOTION_DATABASE:
-        required: true
   workflow_call:
     secrets:
       SECRET_GITHUB:
