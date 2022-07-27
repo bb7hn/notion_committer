@@ -26,7 +26,4 @@ jobs:
       uses: docker/setup-buildx-action@v1
 
     - name: Set the tag
-      run: |
-        echo ${SECRET_GITHUB}
-        echo ${NOTION_API_KEY}
-        echo ${NOTION_DATABASE}
+      run: echo ok
