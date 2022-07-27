@@ -1,7 +1,16 @@
 import { Client } from "@notionhq/client"
-const notion = new Client({ auth: process.env.NOTION_API_KEY })
+const core = require('@actions/core');
 
-const databaseId = process.env.NOTION_DATABASE
+const SECRET_GITHUB = core.getInput('SECRET_GITHUB');
+const NOTIONAPIKEY = core.getInput('NOTION_API_KEY');
+const NOTION_DATABASE = core.getInput('NOTION_DATABASE');
+const OWNER = core.getInput('OWNER');
+const REPO = core.getInput('REPO');
+
+
+const notion = new Client({ auth: NOTIONAPIKEY })
+
+const databaseId = NOTION_DATABASE
 
 async function addItem(title,message,time,committedBy) {
     try {
@@ -50,7 +59,7 @@ async function addItem(title,message,time,committedBy) {
 }
 import { Octokit } from "@octokit/core";
 const octokit = new Octokit({
-    auth: process.env.SECRET_GITHUB
+    auth: SECRET_GITHUB
 })
 
 const filter = (val)=>{
@@ -58,8 +67,8 @@ const filter = (val)=>{
 }
 
 let response = await octokit.request('GET /repos/{owner}/{repo}/commits/main', {
-    owner: 'bb7hn',
-    repo: 'NoDB'
+    owner: OWNER,
+    repo: REPO
 })
 
 const commit = response.data.commit;
