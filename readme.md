@@ -31,6 +31,8 @@ jobs:
 - GITHUB_TOKEN (required)
 - NOTION_API_KEY (required)
 - NOTION_DATABASE (required)
+- OWNER : (required)
+- REPO  : (required)
 <br>
 
 [Get Notion API KEY](https://developers.notion.com/docs/getting-started#step-1-create-an-integration)
