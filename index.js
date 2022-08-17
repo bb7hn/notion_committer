@@ -84,3 +84,4 @@ let committedBy = (commit.committer.name);
 messages.splice(0,1);
 let message = messages.join('\n');
 addItem(title,message,time,committedBy);
+
